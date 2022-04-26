@@ -1,17 +1,22 @@
 import React from 'react'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, Text, TouchableOpacity, View } from 'react-native'
 import HomeNav from '../pages/HomeNav';
 import Cuti from '../pages/Cuti';
 import ScanQR from '../pages/ScanQR';
 import AkunUser from '../pages/AkunUser';
 import BroadCast from '../pages/BroadCast';
+import Splash from '../pages/Splash';
+import SignUp from '../pages/SignUp';
+
 
 
 
 const Tab = createBottomTabNavigator()
+const Stack = createNativeStackNavigator();
 
-const CustomTabBarButton = ({children, onPress}) => {
+export const CustomTabBarButton = ({children, onPress}) => {
     return <TouchableOpacity 
         style={{
             top: -30,
@@ -136,5 +141,15 @@ const TabNav = () => {
     </Tab.Navigator>
   )
 }
+
+// const Router = () => {
+//     return (
+//       <Stack.Navigator initialRouteName="Splash">
+//         <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }}/>
+//         <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }}/>
+//         {/* <Stack.Screen name="MainApp" component={MainApp} options={{ headerShown: false }}/> */}
+//       </Stack.Navigator>
+//     );
+//   };
 
 export default TabNav

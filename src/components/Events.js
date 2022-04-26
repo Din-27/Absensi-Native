@@ -18,11 +18,12 @@ const Events = () => {
     <View style={{backgroundColor: '#E6EEF6', marginLeft: 5, borderRadius: 10, padding: 14, justifyContent: 'center', alignItems: 'center'}}>
       <View style={{flexDirection: 'row', right: 3}}>
         <Text style={{color: 'black', fontWeight: 'bold'}}>Quranization</Text>
-        <View>
+        <View style={{flexDirection: 'row', borderWidth: 1, borderColor: 'white', backgroundColor: 'red', paddingHorizontal: 5, alignItems: 'center', borderRadius: 10}}>
             <Image
+                style={{right: 3}}
                 source={require('./../assets/icon-timer.png')}
             />
-            <Text style={{color: '#A3A3A3', left: 3, fontSize: 10, top: 4}}>30 Hari lagi</Text>
+            <Text style={{color: 'white', fontSize: 10}}>30 Hari lagi</Text>
         </View>
       </View>
       <Text style={{color: 'black', textAlign: 'center'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaadipiscing elit, sed do eiusmod...</Text>
