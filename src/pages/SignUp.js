@@ -14,6 +14,7 @@ const MainApp = ({navigation: {navigate}}) => {
             email : email,
             password: password
         }
+        // navigate('TabNav')
         console.log(data)
         if(data.email === ""){
             alert('email kosong')

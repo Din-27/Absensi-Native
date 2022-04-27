@@ -9,6 +9,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { NativeBaseProvider, extendTheme  } from 'native-base';
 import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+// import TopTab from './src/components/TopTab';
 // import Router from './src/components/TabNav'
 import Router from './src/router/Router';
 
@@ -51,11 +53,11 @@ const App = () => {
   });
 
   return (
-    <NavigationContainer>
       <NativeBaseProvider theme={theme}>
-        <Router/>
+        <SafeAreaProvider>
+            <Router/>
+        </SafeAreaProvider>
       </NativeBaseProvider>
-    </NavigationContainer>
   );
 };
 

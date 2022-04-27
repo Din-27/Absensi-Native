@@ -1,7 +1,13 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
+import {useNavigation} from '@react-navigation/native';
 import React from 'react'
 
 const Choose = () => {
+  const navigation = useNavigation();
+  const handleNavigate = () => {
+    navigation.navigate('Choose')
+  }
+
   return (
     <>
       <View style={{display: 'flex', top: -100, flexDirection: 'row', justifyContent: 'space-around'}}>
@@ -74,31 +80,29 @@ const Choose = () => {
                 height: 25,}}/>
               <Text style={{color: '#636363', fontSize: 12, top: 20}}>Klaim</Text>
             </View>
-              </TouchableOpacity>
-              <TouchableOpacity>
-              
-          <View style={{alignItems: 'center', justifyContent: 'center', top: 10, left: 1}}>
-            <Image 
-              source={require('./../assets/icon-cash.png')}
-              resizeMode='contain'
-              style={{
-                width: 25,
-                height: 25,}}/>
-              <Text style={{color: '#636363', fontSize: 12, top: 20}}>Cash Advance</Text>
-            </View>
-              </TouchableOpacity>
-              <TouchableOpacity>
-              
-          <View style={{alignItems: 'center', justifyContent: 'center', top: 10, right: 8}}>
-            <Image 
-              source={require('./../assets/icon-dll.png')}
-              resizeMode='contain'
-              style={{
-                width: 25,
-                height: 25,}}/>
-              <Text style={{color: '#636363', fontSize: 12, top: 20}}>Lainnya</Text>
-            </View>
-              </TouchableOpacity>
+            </TouchableOpacity>
+                <TouchableOpacity>
+                <View style={{alignItems: 'center', justifyContent: 'center', top: 10, left: 1}}>
+                  <Image 
+                    source={require('./../assets/icon-cash.png')}
+                    resizeMode='contain'
+                    style={{
+                      width: 25,
+                      height: 25,}}/>
+                    <Text style={{color: '#636363', fontSize: 12, top: 20}}>Cash Advance</Text>
+                  </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={handleNavigate}>
+                <View style={{alignItems: 'center', justifyContent: 'center', top: 10, right: 8}}>
+                  <Image 
+                    source={require('./../assets/icon-dll.png')}
+                    resizeMode='contain'
+                    style={{
+                      width: 25,
+                      height: 25,}}/>
+                    <Text style={{color: '#636363', fontSize: 12, top: 20}}>Lainnya</Text>
+                  </View>
+                </TouchableOpacity>
         </View>
     </>
   )

@@ -7,16 +7,20 @@ import Cuti from '../pages/Cuti';
 import ScanQR from '../pages/ScanQR';
 import AkunUser from '../pages/AkunUser';
 import BroadCast from '../pages/BroadCast';
-import Splash from '../pages/Splash';
-import SignUp from '../pages/SignUp';
+import AllChoose from './AllChoose';
+import TopTab from './TopTab';
+import { useNavigation } from '@react-navigation/native';
+import Onboarding from '../pages/BroadCast';
+
 
 
 
 
 const Tab = createBottomTabNavigator()
-const Stack = createNativeStackNavigator();
 
 export const CustomTabBarButton = ({children, onPress}) => {
+
+
     return <TouchableOpacity 
         style={{
             top: -30,
@@ -37,8 +41,8 @@ export const CustomTabBarButton = ({children, onPress}) => {
 
 const TabNav = () => {
   return (
-    <Tab.Navigator
-        screenOptions={{
+    <Tab.Navigator>
+      <Tab.Group screenOptions={{
             headerShown: false,
             tabBarShowLabel: false,
             tabBarStyle: {
@@ -104,40 +108,71 @@ const TabNav = () => {
                 <CustomTabBarButton {...props}/>
             )
         }}/>
+      </Tab.Group>
+      <Tab.Group screenOptions={{
+            headerShown: true,
+            tabBarShowLabel: false,
+            tabBarStyle: {
+                position: 'absolute',
+                bottom: -25,
+                // left: 20,
+                // right: 20,
+                // elevations: 0,
+                backgroundColor: '#ffffff',
+                // borderRadius: 15,
+                height: 90
+              }
+            }}>
       <Tab.Screen
-        name="BroadCast"
-        component={BroadCast}
+        name="Broadcast"
+        component={TopTab}
         options={{tabBarIcon: ({focused}) =>(
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
                 <Image 
-                source={require('./../assets/icon-broad.png')}
-                resizeMode='contain'
-                style={{
-                    top: -10,
-                    // width: 25,
-                    // height: 25,
-                    tintColor: focused ? '#0052A7' : '#636363'
+                    source={require('./../assets/icon-broad.png')}
+                    resizeMode='contain'
+                    style={{
+                        top: -10,
+                        // width: 25,
+                        // height: 25,
+                        tintColor: focused ? '#0052A7' : '#636363'
                 }}/>
                 <Text style={{color: focused ? '#0052A7' : '#636363', top: -10, fontSize: 12}}>Broadcast</Text>
             </View>
         )}}/>
-      <Tab.Screen
-        name="AkunUser"
-        component={AkunUser}
-        options={{tabBarIcon: ({focused}) =>(
-            <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                <Image 
-                source={require('./../assets/icon-akun.png')}
-                resizeMode='contain'
-                style={{
-                    top: -10,
-                    // width: 25,
-                    // height: 25,
-                    tintColor: focused ? '#0052A7' : '#636363'
-                }}/>
-                <Text style={{color: focused ? '#0052A7' : '#636363', top: -10, fontSize: 12}}>Akun</Text>
-            </View>
-        )}}/>
+      </Tab.Group>
+      <Tab.Group screenOptions={{
+            headerShown: false,
+            tabBarShowLabel: false,
+            tabBarStyle: {
+                position: 'absolute',
+                bottom: -25,
+                // left: 20,
+                // right: 20,
+                // elevations: 0,
+                backgroundColor: '#ffffff',
+                // borderRadius: 15,
+                height: 90
+              }
+            }}>
+        <Tab.Screen
+            name="AkunUser"
+            component={AkunUser}
+            options={{tabBarIcon: ({focused}) =>(
+                <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                    <Image 
+                    source={require('./../assets/icon-akun.png')}
+                    resizeMode='contain'
+                    style={{
+                        top: -10,
+                        // width: 25,
+                        // height: 25,
+                        tintColor: focused ? '#0052A7' : '#636363'
+                    }}/>
+                    <Text style={{color: focused ? '#0052A7' : '#636363', top: -10, fontSize: 12}}>Akun</Text>
+                </View>
+            )}}/>
+      </Tab.Group>
     </Tab.Navigator>
   )
 }

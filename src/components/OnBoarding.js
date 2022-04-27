@@ -5,7 +5,7 @@ const OnBoarding = ({item}) => {
 
   const d = new Date();
   let nD = d.toString().split(" ").slice(0, 5).join(" ")
-  const ANIMAL_NAMES = [
+   const ANIMAL_NAMES = [
     {
       id: 1,
       title: 'HR - General Meeting',
